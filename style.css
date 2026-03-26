@@ -33,7 +33,7 @@ header h1 {
 /* GRID */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(2, 1fr); /* max 2 sloupce */
   gap: 20px;
   padding: 40px;
 }
@@ -135,4 +135,12 @@ footer {
   font-size: 40px;
   color: white;
   cursor: pointer;
+}
+
+
+/* RESPONZIVITA */
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* 1 sloupec na mobilu */
+  }
 }
