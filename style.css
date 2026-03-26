@@ -13,8 +13,6 @@ body {
 
 main {
   flex: 1;
-  display: flex;
-  flex-direction: column;
 }
 
 /* HEADER */
@@ -33,7 +31,7 @@ header h1 {
 /* GRID */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* max 2 sloupce */
+  grid-template-columns: repeat(2, 1fr); /* max 2 karty vedle sebe */
   gap: 20px;
   padding: 40px;
 }
@@ -49,9 +47,18 @@ header h1 {
   transition: 0.2s;
 }
 
+/* hover efekt */
 .card:hover {
   transform: scale(1.05);
   background: #e8d39a;
+}
+
+/* poslední karta uprostřed, pokud je na řádku sama */
+.grid-container .card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;    /* samostatný řádek */
+  justify-self: center;    /* vystředění */
+  width: auto;             /* zachování šířky jako ostatní */
+  max-width: 100%;         /* nepřesahuje dostupnou šířku gridu */
 }
 
 /* FOOTER */
@@ -60,6 +67,7 @@ footer {
   padding: 20px;
   background: #e6d3a3;
   border-top: 3px solid #5a3e1b;
+  margin-top: auto;
 }
 
 /* MENU */
@@ -137,10 +145,14 @@ footer {
   cursor: pointer;
 }
 
-
 /* RESPONZIVITA */
 @media (max-width: 600px) {
   .grid-container {
     grid-template-columns: 1fr; /* 1 sloupec na mobilu */
+  }
+
+  .grid-container .card:last-child:nth-child(odd) {
+    grid-column: 1; /* na mobilu zůstane 1 sloupec, poslední karta uprostřed */
+    justify-self: center;
   }
 }
