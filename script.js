@@ -48,72 +48,18 @@
 const menuData = {
   "Hlavní stránka": "https://mindor-tv.github.io/usvit-mazerinu/index.html",
   "Družina": [
-    //{ name: "Stogorin", url: "https://mindor-tv.github.io/popel_trisiasu/postavy/stogorin/character.html" },
-    { name: "", url: "https://mindor-tv.github.io/popel_trisiasu/postavy/aeriel/character.html" },
-    { name: "Bogdan", url: "https://mindor-tv.github.io/popel_trisiasu/postavy/bogdan/character.html" },
-    { name: "Celeana Dawnshield", url: "https://mindor-tv.github.io/popel_trisiasu/postavy/celeana/character.html" },
-    { name: "Ofélie", url: "https://mindor-tv.github.io/popel_trisiasu/postavy/ofelie/character.html" }, 
-    { name: "Thalor", url: "https://mindor-tv.github.io/popel_trisiasu/postavy/thalor/character.html" }
-  ],
-  "Mapy": [
-    { name: "Oblagun", url: "https://mindor-tv.github.io/popel_trisiasu/mapy/oblagun.html" },
-    { name: "Trisias", url: "https://mindor-tv.github.io/popel_trisiasu/mapy/trisias.html" },
+    { name: "Adolfo Derion", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/adolfo/adolfo.html" },
+    { name: "Alexander Woods", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/alex/alex.html" },
+    { name: "Gorik Hammersy", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/gorik/gorik.html" },
+    { name: "Richmond Edmunze", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/richmond/richmond.html" } 
   ],
   "Místa": [
-    /*{ "Ostrovy Gunner": [
-    ]},
-    { "Mazerin": [
-    ]},*/
-    { "Trisias": [
-      { "Království Allveir": [
-        { name: "Averindor", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/kralovstvi_severniho_lidu/averindor/averindor.html" },
-        { name: "Černé Hory", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/kralovstvi_severniho_lidu/cerne_hory/cerne_hory.html" },
-        { name: "Horní Krupá", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/kralovstvi_severniho_lidu/horni_krupa/horni_krupa.html" },
-        { name: "Kamenolec", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/kralovstvi_severniho_lidu/kamenolec/kamenolec.html" },
-        { name: "Ostrokolí", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/kralovstvi_severniho_lidu/ostrokoli/ostrokoli.html" },
-        { name: "Prachovice", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/kralovstvi_severniho_lidu/prachovice/prachovice.html" },
-        { name: "Smrčná", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/kralovstvi_severniho_lidu/smrcna/smrcna.html" },
-        { name: "Stříbrná Rokle", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/kralovstvi_severniho_lidu/stribrna_rokle/stribrna_rokle.html" },
-        { name: "Suchý Pahorek", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/kralovstvi_severniho_lidu/suchy_pahorek/suchy_pahorek.html" },
-        { name: "Trisiaský Trezor", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/kralovstvi_severniho_lidu/trisiasky_trezor/trisiasky_trezor.html" }
-      ]},
-      { "Království Morvallat": [
-        { name: "Dûm Karak", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/monarynske_kralovstvi/dum_karak/dum_karak.html" },
-        { name: "Faünerithler", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/monarynske_kralovstvi/faunerithler/faunerithler.html" },
-        { name: "Hvozdlina", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/monarynske_kralovstvi/hvozdlina/hvozdlina.html" },
-        { name: "Lešijky", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/monarynske_kralovstvi/lesijky/lesijky.html" },
-        { name: "Monaryn", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/monarynske_kralovstvi/monaryn/monaryn_mesto.html" },
-        { name: "Popelgrad", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/monarynske_kralovstvi/popelgrad/popelgrad.html" },
-        { name: "Prachtemir", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/monarynske_kralovstvi/prachtemir/prachtemir.html" },
-        { name: "Praskliny", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/monarynske_kralovstvi/praskliny/praskliny.html" },
-        { name: "Sky Reach", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/monarynske_kralovstvi/sky_reach/sky_reach.html" },
-        { name: "Trilldas", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/monarynske_kralovstvi/trilldas/trilldas.html" },
-        { name: "Záhořlice", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/monarynske_kralovstvi/zahorlice/zahorlice.html" },
-        { name: "Zlatohrádek", url: "https://mindor-tv.github.io/popel_trisiasu/mista/trisias/monarynske_kralovstvi/zlatohradek/zlatohradek.html" }
-      ]}
-    ]},
-    /*{ "Tromin": [
-    ]},*/
+   // { name: "Malý Děvkov", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/adolfo/adolfo.html" },
   ],
   "NPC": [
-    { name: "Ariana Dawnshield", url:"https://mindor-tv.github.io/popel_trisiasu/NPC/ariana_minstrell.html" },
-    { name: "Aurora Dawnshield", url:"https://mindor-tv.github.io/popel_trisiasu/NPC/aurora.html" },
-    { name: "Benjamin Dawnshield", url:"https://mindor-tv.github.io/popel_trisiasu/NPC/benjamin.html" },
-    { name: "Chaol Dawnshield", url:"https://mindor-tv.github.io/popel_trisiasu/NPC/chaol.html" },
-    { name: "Dudo", url:"https://mindor-tv.github.io/popel_trisiasu/NPC/dudo.html" },
-    { name: "Eliška ze mlejna", url:"https://mindor-tv.github.io/popel_trisiasu/NPC/eliska_ze_mlejna.html" },
-    { name: "Folken", url: "https://mindor-tv.github.io/popel_trisiasu/NPC/folken.html" },
-    { name: "Jindřich ze mlejna", url:"https://mindor-tv.github.io/popel_trisiasu/NPC/jindrich_ze_mlejna.html" },
-    { name: "Marcel", url: "https://mindor-tv.github.io/popel_trisiasu/NPC/marcel.html" },
-    { name: "Oren Talld", url: "https://mindor-tv.github.io/popel_trisiasu/NPC/oren_talld.html" },
-    { name: "Pavel Perlík", url:"https://mindor-tv.github.io/popel_trisiasu/NPC/pavel_perlik.html" },
-    { name: "Plea", url: "https://mindor-tv.github.io/popel_trisiasu/NPC/plea.html" },
-    { name: "Sarajev Slim", url:"https://mindor-tv.github.io/popel_trisiasu/NPC/sarajev_slim.html" },
-    { name: "Starosta Velebníček", url: "https://mindor-tv.github.io/popel_trisiasu/NPC/starosta_velebnicek.html" },
-    { name: "Štěpán", url: "https://mindor-tv.github.io/popel_trisiasu/NPC/stepan.html" },
-    { name: "Vaelor Minstrell", url: "https://mindor-tv.github.io/popel_trisiasu/NPC/vaelor_minstrell.html" }
+   // { name: "Giblin Parfell", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/adolfo/adolfo.html" },
   ],
-  "Božstvo": [
+  /*"Božstvo": [
     { name: "Celkový přehled bohů", url: "https://mindor-tv.github.io/popel_trisiasu/bohove/bohove.html" },
     { "Vyšší Pantheon": [
       { name: "Marlůvar", url: "https://mindor-tv.github.io/popel_trisiasu/bohove/marluvar.html" },
@@ -126,8 +72,8 @@ const menuData = {
     { "Nižší Pantheon": [
       { name: "Mondyl", url: "https://mindor-tv.github.io/popel_trisiasu/bohove/nizsi_bohove/mondyl/mondyl.html" }
     ]},
-  ],
-  "Dějiny Oblagunu": "https://mindor-tv.github.io/popel_trisiasu/dejiny-oblagunu.html",
+  ],*/
+  //"Dějiny Oblagunu": "https://mindor-tv.github.io/popel_trisiasu/dejiny-oblagunu.html",
   "Spellbook": [
     { name: "Bard", url: "https://dnd5e.wikidot.com/spells:bard" },
     { name: "Cleric", url: "https://dnd5e.wikidot.com/spells:cleric" },
