@@ -1,6 +1,6 @@
 // === Globální favicon pro všechny podstránky ===
 (function setGlobalFavicon() {
-  const url = "https://mindor-tv.github.io/popel_trisiasu/assets/z_popela_logo.png";
+  const url = "https://mindor-tv.github.io/usvit-mazerinu/assets/usvit_mazerinu_logo.png";
 
   // smažeme staré favicony (pokud nějaké jsou)
   document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"], link[rel="apple-touch-icon"]').forEach(el => el.remove());
@@ -41,7 +41,7 @@
   // iOS/Android PWA dlaždice (nebývá na škodu)
   upsert("apple-touch-icon", url, {});
 
-})("https://mindor-tv.github.io/popel_trisiasu/assets/z_popela_logo.png");
+})("https://mindor-tv.github.io/popel_trisiasu/assets/usvit_mazerinu_logo.png");
 
 
 // --- Konfigurace menu ---
@@ -54,26 +54,11 @@ const menuData = {
     { name: "Richmond Edmunze", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/richmond/richmond.html" } 
   ],
   "Místa": [
-   // { name: "Malý Děvkov", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/adolfo/adolfo.html" },
+   // { name: "Malý Děvkov", url: "" },
   ],
   "NPC": [
-   // { name: "Giblin Parfell", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/adolfo/adolfo.html" },
+   // { name: "Giblin Parfell", url: "" },
   ],
-  /*"Božstvo": [
-    { name: "Celkový přehled bohů", url: "https://mindor-tv.github.io/popel_trisiasu/bohove/bohove.html" },
-    { "Vyšší Pantheon": [
-      { name: "Marlůvar", url: "https://mindor-tv.github.io/popel_trisiasu/bohove/marluvar.html" },
-      { name: "Ilnur", url: "https://mindor-tv.github.io/popel_trisiasu/bohove/ilnur.html" },
-      { name: "Glordi", url: "https://mindor-tv.github.io/popel_trisiasu/bohove/glordi.html" },
-      { name: "Malté", url: "https://mindor-tv.github.io/popel_trisiasu/bohove/malte.html" },
-      { name: "Monaryn", url: "https://mindor-tv.github.io/popel_trisiasu/bohove/monaryn.html" },
-      { name: "Tórlien", url: "https://mindor-tv.github.io/popel_trisiasu/bohove/torlien.html" }
-    ]},
-    { "Nižší Pantheon": [
-      { name: "Mondyl", url: "https://mindor-tv.github.io/popel_trisiasu/bohove/nizsi_bohove/mondyl/mondyl.html" }
-    ]},
-  ],*/
-  //"Dějiny Oblagunu": "https://mindor-tv.github.io/popel_trisiasu/dejiny-oblagunu.html",
   "Spellbook": [
     { name: "Bard", url: "https://dnd5e.wikidot.com/spells:bard" },
     { name: "Cleric", url: "https://dnd5e.wikidot.com/spells:cleric" },
@@ -84,7 +69,7 @@ const menuData = {
     { name: "Warlock", url: "https://dnd5e.wikidot.com/spells:warlock" },
     { name: "Wizard", url: "https://dnd5e.wikidot.com/spells:wizard" }
   ],
-  "Cheatsheet": "https://mindor-tv.github.io/popel_trisiasu/cheatsheet.html"
+  "Cheatsheet": "https://mindor-tv.github.io/usvit_mazerinu/cheatsheet.html"
 };
 
 // === LEVÉ MENU ===
