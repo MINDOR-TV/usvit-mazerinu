@@ -1,2 +1,88 @@
- <h1>Hello Mazerin</h1>
-<p>Na contentu stránky se pracuje. Vše důležité se dozvíte ve správný čas.</p>
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Úsvit Mazerinu</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Fantasy font -->
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- 🔘 TOGGLE BUTTONY -->
+  <button id="menu-toggle">☰</button>
+  <button id="images-toggle">🖼</button>
+
+  <!-- 📚 LEVÉ MENU -->
+  <nav id="side-menu"></nav>
+
+  <!-- 🖼 PRAVÝ SLIDER -->
+  <div id="character-slider">
+    <!-- obrázky doplníš později -->
+  </div>
+
+  <!-- 📜 HLAVNÍ OBSAH -->
+  <main>
+
+    <!-- HEADER -->
+    <header>
+      <h1>Úsvit Mazerinu</h1>
+      <p>Rozcestník do světa kampaně</p>
+    </header>
+
+    <!-- GRID ROZCESTNÍK -->
+    <section class="grid-container">
+
+      <a href="#" class="card">
+        <h2>Družina</h2>
+        <p>Postavy dobrodruhů</p>
+      </a>
+
+      <a href="#" class="card">
+        <h2>Místa</h2>
+        <p>Lokace světa</p>
+      </a>
+
+      <a href="#" class="card">
+        <h2>NPC</h2>
+        <p>Důležité postavy</p>
+      </a>
+
+      <a href="#" class="card">
+        <h2>Spellbook</h2>
+        <p>Kouzla a magie</p>
+      </a>
+
+      <a href="#" class="card">
+        <h2>Cheatsheet</h2>
+        <p>Rychlé reference</p>
+      </a>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2026 Úsvit Mazerinu</p>
+    </footer>
+
+  </main>
+
+  <!-- LIGHTBOX (pro tvůj JS) -->
+  <div id="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-img">
+    <div class="lightbox-caption"></div>
+    <button class="prev">⟨</button>
+    <button class="next">⟩</button>
+  </div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+
+</body>
+</html>
