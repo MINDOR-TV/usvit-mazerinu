@@ -47,6 +47,22 @@ header h1 {
   transition: 0.2s;
 }
 
+.subcards {
+  position: absolute;
+  padding-right: 5px;
+  display: none;
+  flex-direction: column;
+  gap: 1px;
+  z-index: 999;
+  width: 400px;
+}
+
+
+/* aby byly nad vším */
+body {
+  position: relative;
+}
+
 /* hover efekt */
 .card:hover {
   transform: scale(1.05);

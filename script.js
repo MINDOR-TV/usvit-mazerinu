@@ -252,4 +252,61 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') prevBtn.click();
 });
 
+const mainCards = document.querySelectorAll(".main-card");
+const allSubcards = document.querySelectorAll(".subcards");
 
+mainCards.forEach(card => {
+  card.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const targetId = card.dataset.target;
+    const target = document.getElementById(targetId);
+
+    if (!target) return;
+
+    const rect = card.getBoundingClientRect();
+
+    // zavřít ostatní
+    allSubcards.forEach(sc => {
+      if (sc !== target) sc.style.display = "none";
+    });
+
+    // pozice
+    target.style.top = rect.bottom + "px";
+    target.style.left = rect.left + "px";
+
+    // toggle
+    target.style.display =
+      target.style.display === "flex" ? "none" : "flex";
+  });
+});
+
+// klik mimo
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".main-card") && !e.target.closest(".subcards")) {
+    allSubcards.forEach(sc => sc.style.display = "none");
+  }
+});
+
+if (druzinaCard && subcards) {
+  druzinaCard.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const rect = druzinaCard.getBoundingClientRect();
+
+    // pozice přesně pod kartou
+    subcards.style.top = rect.bottom + window.scrollY + "px";
+    subcards.style.left = rect.left + window.scrollX + "px";
+
+    // toggle
+    subcards.style.display =
+      subcards.style.display === "flex" ? "none" : "flex";
+  });
+
+  // klik mimo = zavřít
+  document.addEventListener("click", (e) => {
+    if (!subcards.contains(e.target) && !druzinaCard.contains(e.target)) {
+      subcards.style.display = "none";
+    }
+  });
+}
