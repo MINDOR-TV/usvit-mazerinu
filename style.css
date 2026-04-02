@@ -68,6 +68,7 @@ header p {
   background-position: center;  /* Střed obrázku bude vždy vidět */
   background-repeat: no-repeat;
   min-height: 200px;
+  min-width: 600px;
   /* Text musí být čitelný i přes obrázek */
   display: flex;
   flex-direction: column;
