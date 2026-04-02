@@ -67,7 +67,8 @@ header p {
   background-size: contain;       /* Obrázek vyplní celou kartu bez deformace */
   background-position: center;  /* Střed obrázku bude vždy vidět */
   background-repeat: no-repeat;
-  min-height: 200px;            /* Tímto zajistíš, že karta nebude moc nízká */
+  min-height: 200px;
+  max-height: 200px;/* Tímto zajistíš, že karta nebude moc nízká */
   max-width: 600px;
   /* Text musí být čitelný i přes obrázek */
   display: flex;
@@ -76,6 +77,7 @@ header p {
   align-items: left;
   color: #ffffff;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
+  align: center;
 }
 
 .subcards {
