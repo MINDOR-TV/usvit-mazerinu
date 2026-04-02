@@ -105,7 +105,6 @@ header p {
 
   /* Nastavení pozadí */
   background-size: 100% 100%; /* Vynutí, aby obrázek seděl přesně na pixely */
-  background-image: url('assets/basic_bcg.png');
   background-position: center;
   background-repeat: no-repeat;
   
