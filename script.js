@@ -1,11 +1,8 @@
 // === Globální favicon pro všechny podstránky ===
 (function setGlobalFavicon() {
   const url = "https://mindor-tv.github.io/usvit-mazerinu/assets/usvit_mazerinu_logo.png";
-
-  // smažeme staré favicony (pokud nějaké jsou)
   document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"], link[rel="apple-touch-icon"]').forEach(el => el.remove());
 
-  // vytvoříme nové
   const createIcon = (rel) => {
     const link = document.createElement("link");
     link.rel = rel;
@@ -19,31 +16,6 @@
   createIcon("apple-touch-icon");
 })();
 
-// === FAVICON ===
-(function setFavicon(url) {
-  const head = document.head;
-
-  function upsert(rel, href, extra = {}) {
-    let link = head.querySelector(`link[rel="${rel}"]`);
-    if (!link) {
-      link = document.createElement("link");
-      link.rel = rel;
-      head.appendChild(link);
-    }
-    Object.entries(extra).forEach(([k, v]) => (link[k] = v));
-    link.href = href;
-  }
-
-  // Standard favicon
-  upsert("icon", url, { type: "image/png" });
-  // Pro starší prohlížeče
-  upsert("shortcut icon", url, { type: "image/png" });
-  // iOS/Android PWA dlaždice (nebývá na škodu)
-  upsert("apple-touch-icon", url, {});
-
-})("https://mindor-tv.github.io/popel_trisiasu/assets/usvit_mazerinu_logo.png");
-
-
 // --- Konfigurace menu ---
 const menuData = {
   "Hlavní stránka": "https://mindor-tv.github.io/usvit-mazerinu/index.html",
@@ -53,12 +25,8 @@ const menuData = {
     { name: "Gorik Hammersy", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/gorik/gorik.html" },
     { name: "Richmond Edmunze", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/richmond/richmond.html" } 
   ],
-  "Místa": [
-   // { name: "Malý Děvkov", url: "" },
-  ],
-  "NPC": [
-   // { name: "Giblin Parfell", url: "" },
-  ],
+  "Místa": [],
+  "NPC": [],
   "Spellbook": [
     { name: "Bard", url: "https://dnd5e.wikidot.com/spells:bard" },
     { name: "Cleric", url: "https://dnd5e.wikidot.com/spells:cleric" },
@@ -77,7 +45,6 @@ const menuContainer = document.getElementById("side-menu");
 const toggleBtn = document.getElementById("menu-toggle");
 
 if (menuContainer && toggleBtn) {
-
   function createSubmenu(items, parentCategory) {
     const submenu = document.createElement("div");
     submenu.classList.add("submenu");
@@ -87,12 +54,10 @@ if (menuContainer && toggleBtn) {
         const link = document.createElement("a");
         link.textContent = item.name;
         link.href = item.url;
-
         if (parentCategory === "Spellbook") {
           link.target = "_blank";
           link.rel = "noopener noreferrer";
         }
-
         submenu.appendChild(link);
       } else if (typeof item === "object") {
         const key = Object.keys(item)[0];
@@ -101,22 +66,18 @@ if (menuContainer && toggleBtn) {
         nestedHeader.classList.add("menu-category", "nested-category");
 
         const nestedSubmenu = createSubmenu(item[key]);
-        nestedHeader.addEventListener("click", () => {
-          nestedSubmenu.classList.toggle("visible");
-        });
+        nestedHeader.addEventListener("click", () => nestedSubmenu.classList.toggle("visible"));
 
         submenu.appendChild(nestedHeader);
         submenu.appendChild(nestedSubmenu);
       }
     });
-
     return submenu;
   }
 
   Object.keys(menuData).forEach(category => {
     const section = document.createElement("div");
     section.classList.add("menu-section");
-
     const value = menuData[category];
 
     if (typeof value === "string") {
@@ -135,39 +96,31 @@ if (menuContainer && toggleBtn) {
     section.appendChild(header);
 
     const submenu = createSubmenu(value, category);
-    header.addEventListener("click", () => {
-      submenu.classList.toggle("visible");
-    });
+    header.addEventListener("click", () => submenu.classList.toggle("visible"));
 
     section.appendChild(submenu);
     menuContainer.appendChild(section);
   });
   
- // --- Přidání externího odkazu úplně dolů levého slideru ---
-(function addExternalLink() {
-  const menuContainer = document.getElementById("side-menu");
-  if (!menuContainer) return;
+  (function addExternalLink() {
+    menuContainer.style.display = "flex";
+    menuContainer.style.flexDirection = "column";
+    menuContainer.style.overflowY = "auto";
 
-  menuContainer.style.display = "flex";
-  menuContainer.style.flexDirection = "column";
-  menuContainer.style.overflowY = "auto";
+    const section = document.createElement("div");
+    section.classList.add("menu-section");
+    section.style.marginTop = "auto";
 
-  const section = document.createElement("div");
-  section.classList.add("menu-section");
-  section.style.marginTop = "auto";
+    const link = document.createElement("a");
+    link.textContent = "Oblagun";
+    link.href = "https://mindor-tv.github.io/oblagun/index.html";
+    link.classList.add("menu-category", "direct-link");
 
-  const link = document.createElement("a");
-  link.textContent = "Oblagun";
-  link.href = "https://mindor-tv.github.io/oblagun/index.html";
-  link.classList.add("menu-category", "direct-link");
+    section.appendChild(link);
+    menuContainer.appendChild(section);
+  })();
 
-  section.appendChild(link);
-  menuContainer.appendChild(section);
-})();
-
-  toggleBtn.addEventListener("click", () => {
-    menuContainer.classList.toggle("visible");
-  });
+  toggleBtn.addEventListener("click", () => menuContainer.classList.toggle("visible"));
 }
 
 // === Zvýraznění aktuální stránky ===
@@ -196,7 +149,6 @@ if (imagesToggle && characterSlider) {
     e.stopPropagation();
     characterSlider.classList.toggle("visible");
   });
-
   document.addEventListener("click", (e) => {
     if (!characterSlider.contains(e.target) && !imagesToggle.contains(e.target)) {
       characterSlider.classList.remove("visible");
@@ -204,109 +156,79 @@ if (imagesToggle && characterSlider) {
   });
 }
 
-const images = document.querySelectorAll('.character-image');
+// === LIGHTBOX ===
 const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.querySelector('.lightbox-img');
-const lightboxCaption = document.querySelector('.lightbox-caption');
-const closeBtn = document.querySelector('.close');
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
+if (lightbox) {
+  const images = document.querySelectorAll('.character-image');
+  const lightboxImg = document.querySelector('.lightbox-img');
+  const lightboxCaption = document.querySelector('.lightbox-caption');
+  const closeBtn = document.querySelector('.close');
+  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.prev');
+  let currentIndex = 0;
 
-let currentIndex = 0;
+  function showImage() {
+    if (images.length === 0) return;
+    const img = images[currentIndex];
+    lightboxImg.src = img.src;
+    lightboxCaption.textContent = img.getAttribute('data-caption') || '';
+  }
 
-images.forEach((img, index) => {
-  img.addEventListener('click', () => {
-    currentIndex = index;
-    showImage();
-    lightbox.style.display = 'flex';
+  images.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      currentIndex = index;
+      showImage();
+      lightbox.style.display = 'flex';
+    });
   });
-});
 
-function showImage() {
-  const img = images[currentIndex];
-  lightboxImg.src = img.src;
-  lightboxCaption.textContent = img.getAttribute('data-caption') || '';
+  if (nextBtn) nextBtn.addEventListener('click', () => { currentIndex = (currentIndex + 1) % images.length; showImage(); });
+  if (prevBtn) prevBtn.addEventListener('click', () => { currentIndex = (currentIndex - 1 + images.length) % images.length; showImage(); });
+  if (closeBtn) closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) lightbox.style.display = 'none';
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.style.display === 'flex') {
+      if (e.key === 'Escape') lightbox.style.display = 'none';
+      if (e.key === 'ArrowRight' && nextBtn) nextBtn.click();
+      if (e.key === 'ArrowLeft' && prevBtn) prevBtn.click();
+    }
+  });
 }
 
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % images.length;
-  showImage();
-});
-
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  showImage();
-});
-
-closeBtn.addEventListener('click', () => {
-  lightbox.style.display = 'none';
-});
-
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox) lightbox.style.display = 'none';
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') lightbox.style.display = 'none';
-  if (e.key === 'ArrowRight') nextBtn.click();
-  if (e.key === 'ArrowLeft') prevBtn.click();
-});
-
+// === KARTY (Rozcestník) - Fix pozice dolů ===
 const mainCards = document.querySelectorAll(".main-card");
 const allSubcards = document.querySelectorAll(".subcards");
 
 mainCards.forEach(card => {
   card.addEventListener("click", (e) => {
     e.preventDefault();
-
     const targetId = card.dataset.target;
     const target = document.getElementById(targetId);
 
     if (!target) return;
 
-    const rect = card.getBoundingClientRect();
-
-    // zavřít ostatní
+    // Zavřít ostatní
     allSubcards.forEach(sc => {
       if (sc !== target) sc.style.display = "none";
     });
 
-    // pozice
-    target.style.top = rect.bottom + "px";
-    target.style.left = rect.left + "px";
+    // Toggle zobrazení
+    const isVisible = target.style.display === "flex";
+    target.style.display = isVisible ? "none" : "flex";
 
-    // toggle
-    target.style.display =
-      target.style.display === "flex" ? "none" : "flex";
-  });
-});
+    if (!isVisible) {
+      // Použijeme offsetTop místo getBoundingClientRect, 
+      // protože offsetTop není ovlivněn CSS transformací (scale při hoveru)
+      const parent = card.parentElement;
+      
+      // Umístění natvrdo pod kartu
+      target.style.top = (card.offsetTop + card.offsetHeight) + "px";
+      target.style.left = card.offsetLeft + "px";
 
-// klik mimo
-document.addEventListener("click", (e) => {
-  if (!e.target.closest(".main-card") && !e.target.closest(".subcards")) {
-    allSubcards.forEach(sc => sc.style.display = "none");
-  }
-});
-
-if (druzinaCard && subcards) {
-  druzinaCard.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    const rect = druzinaCard.getBoundingClientRect();
-
-    // pozice přesně pod kartou
-    subcards.style.top = rect.bottom + window.scrollY + "px";
-    subcards.style.left = rect.left + window.scrollX + "px";
-
-    // toggle
-    subcards.style.display =
-      subcards.style.display === "flex" ? "none" : "flex";
-  });
-
-  // klik mimo = zavřít
-  document.addEventListener("click", (e) => {
-    if (!subcards.contains(e.target) && !druzinaCard.contains(e.target)) {
-      subcards.style.display = "none";
     }
   });
-}
+});
