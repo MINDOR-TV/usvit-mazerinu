@@ -64,7 +64,7 @@ header p {
 }
 
 .main-card {
-  background-size: cover;       /* Obrázek vyplní celou kartu bez deformace */
+  background-size: fill;       /* Obrázek vyplní celou kartu bez deformace */
   background-position: center;  /* Střed obrázku bude vždy vidět */
   background-repeat: no-repeat;
   min-height: 200px;            /* Tímto zajistíš, že karta nebude moc nízká */
