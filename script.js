@@ -25,7 +25,12 @@ const menuData = {
     { name: "Gorik Hammersy", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/gorik/gorik.html" },
     { name: "Richmond Edmunze", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/richmond/richmond.html" } 
   ],
-  "Místa": [],
+  "Místa": [
+   /*{ name: "Čmeledon", url: "https://mindor-tv.github.io/usvit-mazerinu/mista/cmeledon.html" },
+    { name: "Horní Dolní", url: "https://mindor-tv.github.io/usvit-mazerinu/mista/horni_dolni.html" },
+    { name: "Malý Děvkov", url: "https://mindor-tv.github.io/usvit-mazerinu/mista/maly_devkov.html" },
+    { name: "Marbolen", url: "https://mindor-tv.github.io/usvit-mazerinu/mista/marbolen.html" }*/
+  ],
   "NPC": [
     { name: "Giblin Parfell", url: "https://mindor-tv.github.io/usvit-mazerinu/NPC/giblin/giblin.html" },
     { name: "Velká Berta", url: "https://mindor-tv.github.io/usvit-mazerinu/NPC/velka_berta/velka_berta.html" } 
