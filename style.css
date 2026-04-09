@@ -211,14 +211,18 @@ footer p {
 /* SIDE MENU */
 #side-menu {
   position: fixed;
-  left: -250px;
+  left: -260px;
   top: 0;
-  width: 250px;
+  width: 260px;
   height: 100%;
   background: #1a1a1a;
   color: white;
-  transition: 0.3s;
-  padding: 20px;
+  transition: left 0.3s ease;
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
 }
 
 #side-menu.visible {
