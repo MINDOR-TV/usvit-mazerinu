@@ -186,6 +186,10 @@ footer {
   text-decoration: underline;
 }
 
+.footer-left-link:visited {
+  text-decoration: none;
+  color: #5a3e1b;
+}
 footer p {
   margin: 0;
   flex-grow: 1;
