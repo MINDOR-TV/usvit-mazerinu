@@ -40,7 +40,7 @@ const menuData = {
     { name: "Warlock", url: "https://dnd5e.wikidot.com/spells:warlock" },
     { name: "Wizard", url: "https://dnd5e.wikidot.com/spells:wizard" }
   ],
-  "Cheatsheet": "https://mindor-tv.github.io/usvit_mazerinu/cheatsheet.html"
+  //"Cheatsheet": "https://mindor-tv.github.io/usvit_mazerinu/cheatsheet.html"
 };
 
 // === LEVÉ MENU ===
