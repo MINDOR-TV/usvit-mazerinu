@@ -174,7 +174,7 @@ footer {
   width: 100%;
 }
 
-.footer-left-link {
+.footer-link {
   position: absolute; /* Přitlačí odkaz do rohu nezávisle na centru textu */
   left: 25px;
   text-decoration: none;
@@ -182,14 +182,15 @@ footer {
   font-weight: bold;
 }
 
-.footer-left-link:hover {
+.footer-link:hover {
   text-decoration: underline;
 }
 
-.footer-left-link:visited {
+.footer-link:visited {
   text-decoration: none;
   color: #5a3e1b;
 }
+
 footer p {
   margin: 0;
   flex-grow: 1;
