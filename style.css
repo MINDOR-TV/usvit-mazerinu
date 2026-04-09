@@ -225,6 +225,7 @@ footer p {
 
 #images-toggle {
   right: 10px;
+  z-index: 3000;
 }
 
 /* SIDE MENU */
@@ -304,21 +305,37 @@ footer p {
 /* SLIDER */
 #character-slider {
   position: fixed;
-  right: -300px;
+  right: 0;
   top: 0;
-  width: 300px;
+  width: 260px;
   height: 100%;
 
-  background: #111;
-  transition: right 0.3s ease;
+  background: #1a1a1a;
+  color: white;
 
-  z-index: 2000; /* 🔥 nad obsahem */
+  transform: translateX(100%); /* 🔥 schovaný doprava */
+  transition: transform 0.3s ease;
+
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 60px 15px 15px; /* 🔥 místo pro tlačítko */
   overflow-y: auto;
-  padding: 15px;
+
+  z-index: 2500;
 }
 
 #character-slider.visible {
-  right: 0;
+  transform: translateX(0);
+}
+
+#character-slider img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 /* LIGHTBOX */
