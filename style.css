@@ -219,7 +219,7 @@ footer p {
 }
 
 #menu-toggle {
-  left: 10px;
+  z-index: 3000;
 }
 
 #images-toggle {
@@ -234,16 +234,19 @@ footer p {
   width: 260px;
   height: 100%;
 
+  background: #1a1a1a;       /* 🔥 VRÁTIT */
+  color: white;              /* 🔥 VRÁTIT */
+
   transform: translateX(-100%);
   transition: transform 0.3s ease;
 
   box-sizing: border-box;
 
-  /* 🔥 DŮLEŽITÉ FIXY */
-  background: #1a1a1a;   /* vrátí pozadí */
-  color: white;
-  padding: 60px 15px 15px; /* odsazení OD TLAČÍTKA */
-  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+
+  padding: 60px 15px 15px;   /* 🔥 místo pro tlačítko */
+  overflow-y: auto;
 }
 
 #side-menu.visible {
