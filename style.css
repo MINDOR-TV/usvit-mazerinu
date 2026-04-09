@@ -101,7 +101,7 @@ header p {
   
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-  font-wight: bold;
+  font-weight: bold;
 
   /* Nastavení pozadí */
   background-size: 100% 100%; /* Vynutí, aby obrázek seděl přesně na pixely */
@@ -194,18 +194,25 @@ footer p {
 }
 
 /* MENU */
-#menu-toggle {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
-}
-
+#menu-toggle,
 #images-toggle {
   position: fixed;
-  top: 10px;
-  right: 10px;
-  z-index: 1000;
+  z-index: 2100;
+
+  background: #1a1a1a;
+  color: white;
+  border: 2px solid #5a3e1b;
+
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+#menu-toggle:hover,
+#images-toggle:hover {
+  background: #5a3e1b;
 }
 
 /* SIDE MENU */
@@ -215,18 +222,67 @@ footer p {
   top: 0;
   width: 260px;
   height: 100%;
+
   background: #1a1a1a;
   color: white;
+
   transition: left 0.3s ease;
   padding: 15px;
 
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+
+  z-index: 2000; /* 🔥 důležité */
 }
 
 #side-menu.visible {
   left: 0;
+}
+
+.menu-section {
+  margin-bottom: 10px;
+}
+
+.menu-category {
+  font-weight: bold;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.menu-category:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.menu-category.direct-link {
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+.submenu {
+  display: none;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.submenu.visible {
+  display: flex;
+}
+
+.submenu a {
+  color: #ccc;
+  text-decoration: none;
+  padding: 6px;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+.submenu a:hover {
+  background: rgba(255,255,255,0.1);
+  color: white;
 }
 
 /* SLIDER */
@@ -236,8 +292,13 @@ footer p {
   top: 0;
   width: 300px;
   height: 100%;
+
   background: #111;
-  transition: 0.3s;
+  transition: right 0.3s ease;
+
+  z-index: 2000; /* 🔥 nad obsahem */
+  overflow-y: auto;
+  padding: 15px;
 }
 
 #character-slider.visible {
