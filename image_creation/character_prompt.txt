@@ -1,0 +1,23 @@
+
+
+This character is a human.
+Create a full-body character artwork based strictly on the provided 3D model reference images.
+
+The character must match the 3D model with very high accuracy (face, proportions, colors, armor, clothing, and all details), preserving the exact design and color palette from the model. Do not redesign or reinterpret the character — only translate it into a painterly style.
+
+Style: high-detail fantasy oil painting with a slight realistic touch. Visible brush strokes, rich textures, and painterly shading.
+
+Composition: full-body character, front-facing, same pose as in the 3D model. Centered composition, artwork style (not a photo).
+
+Lighting: soft, slightly dramatic lighting, subtle realism, night-like ambiance.
+
+Background: mostly clean and unobtrusive, with a subtle dark gradient. Add faint, atmospheric fire elements or small flames around the character for mood, but keep them minimal and not distracting.
+
+Details: highly detailed textures, especially on armor, fabric, skin, and weapons. Maintain sharp clarity while preserving an oil painting look.
+
+Do not change the character’s equipment, pose, or design. The final result should look like a polished fantasy artwork painting based directly on the provided 3D model.
+
+Ensure the oil painting style leans strongly toward realism, with lifelike textures, natural lighting, and believable materials.
+
+Strict adherence to the reference images is required. No creative deviations.
+
