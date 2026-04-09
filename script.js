@@ -188,7 +188,7 @@ document.addEventListener("keydown", (e) => {
 const lightbox = document.getElementById('lightbox');
 
 if (lightbox) {
-  const images = document.querySelectorAll('.character-image');
+  const images = document.querySelectorAll('#character-slider img');
   const lightboxImg = document.querySelector('.lightbox-img');
   const lightboxCaption = document.querySelector('.lightbox-caption');
   const closeBtn = document.querySelector('.close');
