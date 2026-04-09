@@ -215,6 +215,14 @@ footer p {
   background: #5a3e1b;
 }
 
+#menu-toggle {
+  left: 10px;
+}
+
+#images-toggle {
+  right: 10px;
+}
+
 /* SIDE MENU */
 #side-menu {
   position: fixed;
