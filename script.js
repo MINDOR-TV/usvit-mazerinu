@@ -26,7 +26,10 @@ const menuData = {
     { name: "Richmond Edmunze", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/richmond/richmond.html" } 
   ],
   "Místa": [],
-  "NPC": [],
+  "NPC": [
+    { name: "Giblin Parfell", url: "https://mindor-tv.github.io/usvit-mazerinu/NPC/giblin/giblin.html" },
+    { name: "Velká Berta", url: "https://mindor-tv.github.io/usvit-mazerinu/NPC/velka_berta/velka_berta.html" } 
+  ],
   "Spellbook": [
     { name: "Bard", url: "https://dnd5e.wikidot.com/spells:bard" },
     { name: "Cleric", url: "https://dnd5e.wikidot.com/spells:cleric" },
@@ -45,6 +48,7 @@ const menuContainer = document.getElementById("side-menu");
 const toggleBtn = document.getElementById("menu-toggle");
 
 if (menuContainer && toggleBtn) {
+
   function createSubmenu(items, parentCategory) {
     const submenu = document.createElement("div");
     submenu.classList.add("submenu");
@@ -54,24 +58,16 @@ if (menuContainer && toggleBtn) {
         const link = document.createElement("a");
         link.textContent = item.name;
         link.href = item.url;
+
         if (parentCategory === "Spellbook") {
           link.target = "_blank";
           link.rel = "noopener noreferrer";
         }
+
         submenu.appendChild(link);
-      } else if (typeof item === "object") {
-        const key = Object.keys(item)[0];
-        const nestedHeader = document.createElement("div");
-        nestedHeader.textContent = key;
-        nestedHeader.classList.add("menu-category", "nested-category");
-
-        const nestedSubmenu = createSubmenu(item[key]);
-        nestedHeader.addEventListener("click", () => nestedSubmenu.classList.toggle("visible"));
-
-        submenu.appendChild(nestedHeader);
-        submenu.appendChild(nestedSubmenu);
       }
     });
+
     return submenu;
   }
 
@@ -96,17 +92,18 @@ if (menuContainer && toggleBtn) {
     section.appendChild(header);
 
     const submenu = createSubmenu(value, category);
-    header.addEventListener("click", () => submenu.classList.toggle("visible"));
+
+    header.addEventListener("click", (e) => {
+      e.stopPropagation();
+      submenu.classList.toggle("visible");
+    });
 
     section.appendChild(submenu);
     menuContainer.appendChild(section);
   });
-  
-  (function addExternalLink() {
-    menuContainer.style.display = "flex";
-    menuContainer.style.flexDirection = "column";
-    menuContainer.style.overflowY = "auto";
 
+  // Spodní odkaz
+  (function addExternalLink() {
     const section = document.createElement("div");
     section.classList.add("menu-section");
     section.style.marginTop = "auto";
@@ -120,35 +117,53 @@ if (menuContainer && toggleBtn) {
     menuContainer.appendChild(section);
   })();
 
-  toggleBtn.addEventListener("click", () => menuContainer.classList.toggle("visible"));
+  // Toggle menu
+  toggleBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menuContainer.classList.toggle("visible");
+  });
+
+  // Klik mimo = zavřít
+  document.addEventListener("click", (e) => {
+    if (!menuContainer.contains(e.target) && !toggleBtn.contains(e.target)) {
+      menuContainer.classList.remove("visible");
+    }
+  });
+
+  // Zvýraznění aktuální stránky
+  const currentUrl = window.location.href;
+  const links = menuContainer.querySelectorAll("a");
+
+  links.forEach(link => {
+    if (link.href === currentUrl) {
+      link.style.color = "#ffcc66";
+
+      let parent = link.parentElement;
+      while (parent && parent !== menuContainer) {
+        if (parent.classList.contains("submenu")) parent.classList.add("visible");
+
+        const header = parent.previousElementSibling;
+        if (header && header.classList.contains("menu-category")) {
+          header.style.color = "#ffcc66";
+        }
+
+        parent = parent.parentElement;
+      }
+    }
+  });
 }
 
-// === Zvýraznění aktuální stránky ===
-const currentUrl = window.location.href;
-const links = menuContainer?.querySelectorAll("a") || [];
-
-links.forEach(link => {
-  if (link.href === currentUrl) {
-    link.style.color = "#ffcc66";
-    let parent = link.parentElement;
-    while (parent && parent !== menuContainer) {
-      if (parent.classList.contains("submenu")) parent.classList.add("visible");
-      const header = parent.previousElementSibling;
-      if (header && header.classList.contains("menu-category")) header.style.color = "#ffcc66";
-      parent = parent.parentElement;
-    }
-  }
-});
-
-// === PRAVÝ SLIDER OBRÁZKŮ ===
+// === PRAVÝ SLIDER ===
 const imagesToggle = document.getElementById("images-toggle");
 const characterSlider = document.getElementById("character-slider");
 
 if (imagesToggle && characterSlider) {
+
   imagesToggle.addEventListener("click", (e) => {
     e.stopPropagation();
     characterSlider.classList.toggle("visible");
   });
+
   document.addEventListener("click", (e) => {
     if (!characterSlider.contains(e.target) && !imagesToggle.contains(e.target)) {
       characterSlider.classList.remove("visible");
@@ -156,8 +171,17 @@ if (imagesToggle && characterSlider) {
   });
 }
 
+// === ESC zavírání ===
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    menuContainer?.classList.remove("visible");
+    characterSlider?.classList.remove("visible");
+  }
+});
+
 // === LIGHTBOX ===
 const lightbox = document.getElementById('lightbox');
+
 if (lightbox) {
   const images = document.querySelectorAll('.character-image');
   const lightboxImg = document.querySelector('.lightbox-img');
@@ -165,6 +189,7 @@ if (lightbox) {
   const closeBtn = document.querySelector('.close');
   const nextBtn = document.querySelector('.next');
   const prevBtn = document.querySelector('.prev');
+
   let currentIndex = 0;
 
   function showImage() {
@@ -182,53 +207,48 @@ if (lightbox) {
     });
   });
 
-  if (nextBtn) nextBtn.addEventListener('click', () => { currentIndex = (currentIndex + 1) % images.length; showImage(); });
-  if (prevBtn) prevBtn.addEventListener('click', () => { currentIndex = (currentIndex - 1 + images.length) % images.length; showImage(); });
-  if (closeBtn) closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
-
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) lightbox.style.display = 'none';
+  nextBtn?.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage();
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (lightbox.style.display === 'flex') {
-      if (e.key === 'Escape') lightbox.style.display = 'none';
-      if (e.key === 'ArrowRight' && nextBtn) nextBtn.click();
-      if (e.key === 'ArrowLeft' && prevBtn) prevBtn.click();
+  prevBtn?.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage();
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
     }
   });
 }
 
-// === KARTY (Rozcestník) - Fix pozice dolů ===
+// === KARTY ===
 const mainCards = document.querySelectorAll(".main-card");
 const allSubcards = document.querySelectorAll(".subcards");
 
 mainCards.forEach(card => {
   card.addEventListener("click", (e) => {
     e.preventDefault();
-    const targetId = card.dataset.target;
-    const target = document.getElementById(targetId);
 
+    const target = document.getElementById(card.dataset.target);
     if (!target) return;
 
-    // Zavřít ostatní
     allSubcards.forEach(sc => {
       if (sc !== target) sc.style.display = "none";
     });
 
-    // Toggle zobrazení
     const isVisible = target.style.display === "flex";
     target.style.display = isVisible ? "none" : "flex";
 
     if (!isVisible) {
-      // Použijeme offsetTop místo getBoundingClientRect, 
-      // protože offsetTop není ovlivněn CSS transformací (scale při hoveru)
-      const parent = card.parentElement;
-      
-      // Umístění natvrdo pod kartu
       target.style.top = (card.offsetTop + card.offsetHeight) + "px";
       target.style.left = card.offsetLeft + "px";
-
     }
   });
 });
