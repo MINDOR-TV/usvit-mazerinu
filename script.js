@@ -129,12 +129,22 @@ if (menuContainer && toggleBtn) {
   });
 
   // Klik mimo = zavřít
+  const lightbox = document.getElementById("lightbox");
+
   document.addEventListener("click", (e) => {
-    if (!menuContainer.contains(e.target) && !toggleBtn.contains(e.target)) {
-      menuContainer.classList.remove("visible");
+    if (
+      !characterSlider.contains(e.target) &&
+      !imagesToggle.contains(e.target) &&
+      !(lightbox && lightbox.contains(e.target)) // 🔥 KLÍČOVÉ
+    ) {
+      characterSlider.classList.remove("visible");
     }
   });
 
+  lightbox?.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+  
   // Zvýraznění aktuální stránky
   const currentUrl = window.location.href;
   const links = menuContainer.querySelectorAll("a");
