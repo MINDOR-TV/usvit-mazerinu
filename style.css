@@ -238,6 +238,12 @@ footer p {
   transition: transform 0.3s ease;
 
   box-sizing: border-box;
+
+  /* 🔥 DŮLEŽITÉ FIXY */
+  background: #1a1a1a;   /* vrátí pozadí */
+  color: white;
+  padding: 60px 15px 15px; /* odsazení OD TLAČÍTKA */
+  z-index: 2000;
 }
 
 #side-menu.visible {
