@@ -207,6 +207,9 @@ footer p {
   border-radius: 6px;
   cursor: pointer;
 
+  top: 10px;
+  height: 40px;
+  
   transition: 0.2s;
 }
 
