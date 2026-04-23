@@ -20,7 +20,7 @@ main {
   margin: 40px auto;
   padding: 30px;
 
-  background: rgba(242, 226, 184, 0.9); /* pergamen */
+  background-image: url("assets/basic_bcg.png");
   border: 2px solid #5a3e1b;
   border-radius: 12px;
 
