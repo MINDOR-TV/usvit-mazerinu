@@ -15,6 +15,21 @@ body {
 
 main {
   flex: 1;
+
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+
+  background: rgba(242, 226, 184, 0.9); /* pergamen */
+  border: 2px solid #5a3e1b;
+  border-radius: 12px;
+
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+main p {
+  line-height: 1.6;
+  margin-bottom: 16px;
 }
 
 /* --- AKTUALIZOVANÝ HEADER S OBRÁZKEM --- */
