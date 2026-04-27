@@ -15,7 +15,9 @@ body {
 
 main {
   flex: 1;
+}
 
+.content {
   max-width: 900px;
   margin: 40px auto;
   padding: 30px;
@@ -29,7 +31,7 @@ main {
   box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
-main p {
+.content p {
   line-height: 1.6;
   margin-bottom: 16px;
 }
