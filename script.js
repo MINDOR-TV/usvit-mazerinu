@@ -20,8 +20,8 @@
 const menuData = {
   "Hlavní stránka": "https://mindor-tv.github.io/usvit-mazerinu/index.html",
   "Družina": [
-    { name: "Adolfo Derion", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/adolfo/adolfo.html" },
     { name: "Alexander Woods", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/alex/alex.html" },
+    { name: "Bennito Derion", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/adolfo/adolfo.html" },
     { name: "Gorik Hammersy", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/gorik/gorik.html" },
     { name: "Richmond Edmunze", url: "https://mindor-tv.github.io/usvit-mazerinu/postavy/richmond/richmond.html" } 
   ],
