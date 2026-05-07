@@ -244,10 +244,15 @@ const allSubcards = document.querySelectorAll(".subcards");
 
 mainCards.forEach(card => {
   card.addEventListener("click", (e) => {
+    const target = card.dataset.target ? document.getElementById(card.dataset.target) : null;
+    
+    // Pokud cílový element neexistuje, nech normální chování odkazu
+    if (!target) {
+      return;
+    }
+    
+    // Jinak blokuj a ukaž subkarty
     e.preventDefault();
-
-    const target = document.getElementById(card.dataset.target);
-    if (!target) return;
 
     allSubcards.forEach(sc => {
       if (sc !== target) sc.style.display = "none";
