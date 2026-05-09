@@ -40,7 +40,7 @@ const menuData = {
     { name: "Warlock", url: "https://dnd5e.wikidot.com/spells:warlock" },
     { name: "Wizard", url: "https://dnd5e.wikidot.com/spells:wizard" }
   ],
-  //"Cheatsheet": "https://mindor-tv.github.io/usvit_mazerinu/cheatsheet.html"
+  "Cheatsheet": "https://mindor-tv.github.io/usvit-mazerinu/cheatsheet.html"
 };
 
 // === LEVÉ MENU ===
@@ -166,6 +166,7 @@ if (menuContainer && toggleBtn) {
 // === PRAVÝ SLIDER ===
 const imagesToggle = document.getElementById("images-toggle");
 const characterSlider = document.getElementById("character-slider");
+const spellbookPopup = document.getElementById("spellbook-popup");
 
 if (imagesToggle && characterSlider) {
 
@@ -186,6 +187,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     menuContainer?.classList.remove("visible");
     characterSlider?.classList.remove("visible");
+    spellbookPopup?.classList.remove("visible");
   }
 });
 
@@ -242,8 +244,34 @@ if (lightbox) {
 const mainCards = document.querySelectorAll(".main-card");
 const allSubcards = document.querySelectorAll(".subcards");
 
+function positionSubcards(card, target) {
+  if (window.matchMedia("(max-width: 600px)").matches) {
+    target.style.top = "";
+    target.style.left = "";
+    return;
+  }
+
+  const margin = 16;
+  const left = Math.min(
+    card.offsetLeft,
+    window.innerWidth - target.offsetWidth - margin
+  );
+
+  target.style.top = (card.offsetTop + card.offsetHeight) + "px";
+  target.style.left = Math.max(margin, left) + "px";
+}
+
 mainCards.forEach(card => {
   card.addEventListener("click", (e) => {
+    if (card.dataset.popup === "spellbook" && spellbookPopup) {
+      e.preventDefault();
+      allSubcards.forEach(sc => {
+        sc.style.display = "none";
+      });
+      spellbookPopup.classList.add("visible");
+      return;
+    }
+
     const target = card.dataset.target ? document.getElementById(card.dataset.target) : null;
     
     // Pokud cílový element neexistuje, nech normální chování odkazu
@@ -262,8 +290,30 @@ mainCards.forEach(card => {
     target.style.display = isVisible ? "none" : "flex";
 
     if (!isVisible) {
-      target.style.top = (card.offsetTop + card.offsetHeight) + "px";
-      target.style.left = card.offsetLeft + "px";
+      positionSubcards(card, target);
     }
+  });
+});
+
+if (spellbookPopup) {
+  const spellbookClose = spellbookPopup.querySelector(".spellbook-close");
+
+  spellbookClose?.addEventListener("click", () => {
+    spellbookPopup.classList.remove("visible");
+  });
+
+  spellbookPopup.addEventListener("click", (e) => {
+    if (e.target === spellbookPopup) {
+      spellbookPopup.classList.remove("visible");
+    }
+  });
+}
+
+window.addEventListener("resize", () => {
+  allSubcards.forEach(target => {
+    if (target.style.display !== "flex") return;
+
+    const card = document.querySelector(`.main-card[data-target="${target.id}"]`);
+    if (card) positionSubcards(card, target);
   });
 });

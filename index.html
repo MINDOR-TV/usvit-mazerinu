@@ -7,6 +7,15 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+  <link rel="preload" as="image" href="assets/side_bcg.png">
+  <link rel="preload" as="image" href="assets/basic_bcg.png">
+  <link rel="preload" as="image" href="assets/druzina_card.png">
+  <link rel="preload" as="image" href="postavy/alex/images/alex_subcard.png">
+  <link rel="preload" as="image" href="postavy/adolfo/images/adolfo_subcard.png">
+  <link rel="preload" as="image" href="postavy/gorik/images/gorik_subcard.png">
+  <link rel="preload" as="image" href="postavy/richmond/images/richmond_subcard.png">
+  <link rel="preload" as="image" href="NPC/giblin/images/giblin_subcard.png">
+  <link rel="preload" as="image" href="NPC/velka_berta/images/berta_subcard.png">
 
   <!-- Fantasy font -->
   <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
@@ -61,21 +70,11 @@
          <!--<a href="#" class="card subcard" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;">Stefan Henrix</a>-->
         </div>
 
-      <a href="#" class="card main-card" data-target="spellbook" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;">
+      <a href="#" class="card main-card" data-popup="spellbook" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;">
         <h2>Spellbook</h2>
       </a>
-        <div class="subcards" id="spellbook">
-          <a href="https://dnd5e.wikidot.com/spells:bard" class="card subcard" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;" target="_blank" rel="noopener noreferrer">Bard</a>
-          <a href="https://dnd5e.wikidot.com/spells:cleric" class="card subcard" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;" target="_blank" rel="noopener noreferrer">Cleric</a>
-          <a href="https://dnd5e.wikidot.com/spells:druid" class="card subcard" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;" target="_blank" rel="noopener noreferrer">Druid</a>
-          <a href="https://dnd5e.wikidot.com/spells:paladin" class="card subcard" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;" target="_blank" rel="noopener noreferrer">Paladin</a>
-          <a href="https://dnd5e.wikidot.com/spells:ranger" class="card subcard" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;" target="_blank" rel="noopener noreferrer">Ranger</a>
-          <a href="https://dnd5e.wikidot.com/spells:sorcerer" class="card subcard" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;" target="_blank" rel="noopener noreferrer">Sorcerer</a>
-          <a href="https://dnd5e.wikidot.com/spells:warlock" class="card subcard" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;" target="_blank" rel="noopener noreferrer">Warlock</a>
-          <a href="https://dnd5e.wikidot.com/spells:wizard" class="card subcard" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;" target="_blank" rel="noopener noreferrer">Wizard</a>
-        </div>
       
-      <a href="#" class="card main-card" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;">
+      <a href="cheatsheet.html" class="card main-card" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;">
         <h2>Cheatsheet</h2>
       </a>
 
@@ -96,6 +95,22 @@
   	<span class="close">&times;</span>
   	<img class="lightbox-img">
   	<div class="lightbox-caption"></div>
+  </div>
+
+  <div id="spellbook-popup" class="spellbook-popup">
+    <div class="spellbook-panel">
+      <button class="spellbook-close" type="button" aria-label="Zavřít">&times;</button>
+      <div class="spellbook-grid">
+        <a href="https://dnd5e.wikidot.com/spells:bard" class="card spellbook-card" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;" target="_blank" rel="noopener noreferrer">Bard</a>
+        <a href="https://dnd5e.wikidot.com/spells:cleric" class="card spellbook-card" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;" target="_blank" rel="noopener noreferrer">Cleric</a>
+        <a href="https://dnd5e.wikidot.com/spells:druid" class="card spellbook-card" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;" target="_blank" rel="noopener noreferrer">Druid</a>
+        <a href="https://dnd5e.wikidot.com/spells:paladin" class="card spellbook-card" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;" target="_blank" rel="noopener noreferrer">Paladin</a>
+        <a href="https://dnd5e.wikidot.com/spells:ranger" class="card spellbook-card" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;" target="_blank" rel="noopener noreferrer">Ranger</a>
+        <a href="https://dnd5e.wikidot.com/spells:sorcerer" class="card spellbook-card" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;" target="_blank" rel="noopener noreferrer">Sorcerer</a>
+        <a href="https://dnd5e.wikidot.com/spells:warlock" class="card spellbook-card" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;" target="_blank" rel="noopener noreferrer">Warlock</a>
+        <a href="https://dnd5e.wikidot.com/spells:wizard" class="card spellbook-card" style="background-image: url('assets/basic_bcg.png'); background-repeat: repeat; background-size: auto;" target="_blank" rel="noopener noreferrer">Wizard</a>
+      </div>
+    </div>
   </div>
 
   <!-- JS -->

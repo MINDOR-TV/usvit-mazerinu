@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cheatsheet | Úsvit Mazerinu</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="preload" as="image" href="assets/side_bcg.png">
+  <link rel="preload" as="image" href="assets/basic_bcg.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <button id="menu-toggle">☰</button>
+  <nav id="side-menu"></nav>
+
+  <header>
+    <h1>Cheatsheet</h1>
+    <p>Rychlá pravidla pro boj, útoky, brnění a kouzlení</p>
+  </header>
+
+  <main>
+    <section class="content cheatsheet-content">
+      <div class="cheatsheet-grid">
+        <article class="rule-card">
+          <h2>Hod na útok</h2>
+          <p class="formula">D20 + modifikátor útoku + případné bonusy</p>
+          <ul>
+            <li>Útok trefí, když je výsledek stejný nebo vyšší než AC cíle.</li>
+            <li>U běžné zbraně se útok počítá ze síly, proficiency bonusu a bonusu zbraně.</li>
+            <li>U zbraní na dálku se místo síly používá obratnost.</li>
+            <li>Pokud je u tebe nepřítel nablízko, útok na dálku má nevýhodu.</li>
+          </ul>
+        </article>
+
+        <article class="rule-card">
+          <h2>Zranění</h2>
+          <p class="formula">kostka zbraně + modifikátor zranění + bonusy</p>
+          <ul>
+            <li>Kostka zranění záleží na použité zbrani.</li>
+            <li>Modifikátor zranění bývá síla, u zbraní na dálku obratnost.</li>
+            <li>Finesse zbraně dovolují zvolit sílu nebo obratnost.</li>
+            <li>Versatile zbraně mají jiné zranění podle toho, jestli jsou v jedné nebo dvou rukou.</li>
+          </ul>
+        </article>
+
+        <article class="rule-card">
+          <h2>Armour Class</h2>
+          <p class="formula">AC = brnění + povolený DEX bonus</p>
+          <ul>
+            <li>AC určuje, jak těžké je postavu zasáhnout.</li>
+            <li>Bez brnění je základ 10 + DEX modifikátor.</li>
+            <li>Štít obvykle přidává +2 AC.</li>
+            <li>Typ brnění může omezovat DEX bonus, stealth nebo vyžadovat určitou sílu.</li>
+            <li>Bez proficiency v daném brnění má postava vážné postihy a nemůže kouzlit.</li>
+          </ul>
+        </article>
+
+        <article class="rule-card">
+          <h2>Kouzla na zásah</h2>
+          <p class="formula">D20 + spellcasting modifikátor + proficiency bonus</p>
+          <ul>
+            <li>Některá kouzla se hází jako útok proti cílovému AC.</li>
+            <li>INT používá wizard, eldritch knight a arcane trickster.</li>
+            <li>WIS používá cleric, druid a ranger.</li>
+            <li>CHA používá bard, paladin, sorcerer a warlock.</li>
+          </ul>
+        </article>
+
+        <article class="rule-card">
+          <h2>Odolání kouzlům</h2>
+          <p class="formula">DC = 8 + spellcasting modifikátor + proficiency bonus + bonusy</p>
+          <ul>
+            <li>Některá kouzla zasáhnou automaticky, ale cíl si hází save.</li>
+            <li>Pokud cíl hodí dostatečně vysoko, účinek kouzla se zmírní nebo zruší podle popisu kouzla.</li>
+            <li>Typ savu určuje konkrétní kouzlo nebo efekt.</li>
+          </ul>
+        </article>
+
+        <article class="rule-card">
+          <h2>Koncentrace</h2>
+          <p class="formula">CON save: 10 nebo polovina utrženého zranění</p>
+          <ul>
+            <li>Postava se může soustředit jen na jedno koncentrační kouzlo.</li>
+            <li>Koncentraci přeruší seslání jiného koncentračního kouzla.</li>
+            <li>Po zranění se hází CON save, používá se vyšší hodnota DC.</li>
+            <li>Při více samostatných zraněních se hází za každé zvlášť.</li>
+            <li>Smrt nebo omráčení koncentraci ukončí.</li>
+          </ul>
+        </article>
+      </div>
+
+      <section class="combat-flow">
+        <h2>Jak probíhá souboj?</h2>
+        <p>
+          Souboj se dělí na kola. Každá postava nebo NPC hraje ve svém tahu podle iniciativy.
+          Iniciativa se určuje hodem D20 s příslušným bonusem, nejvyšší výsledek začíná.
+        </p>
+
+        <div class="turn-grid">
+          <article class="turn-card">
+            <h3>Akce</h3>
+            <p>Hlavní činnost tahu. Typicky útok, seslání kouzla, manévr nebo výraznější práce s prostředím podle rozhodnutí DM.</p>
+          </article>
+
+          <article class="turn-card">
+            <h3>Bonusová akce</h3>
+            <p>Vedlejší činnost, pokud ji postavě dovoluje schopnost, kouzlo, feat nebo situace. Za kolo je běžně jen jedna.</p>
+          </article>
+
+          <article class="turn-card">
+            <h3>Pohyb</h3>
+            <p>Postava se může pohnout do výše své rychlosti. Pohyb lze rozdělit před akci, po akci nebo mezi různé činnosti.</p>
+          </article>
+
+          <article class="turn-card">
+            <h3>Dash a terén</h3>
+            <p>Dash obvykle zdvojnásobí dostupný pohyb. Těžký terén, překážky nebo stav postavy můžou pohyb omezit.</p>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Úsvit Mazerinu</p>
+  </footer>
+
+  <div id="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-img">
+    <div class="lightbox-caption"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
