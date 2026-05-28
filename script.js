@@ -1,6 +1,6 @@
 // === Globální favicon pro všechny podstránky ===
 (function setGlobalFavicon() {
-  const url = "https://mindor-tv.github.io/usvit-mazerinu/assets/usvit_mazerinu_logo.png";
+  const url = "https://mindor-tv.github.io/usvit-mazerinu/assets/usvit_mazerinu_logo.webp";
   document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"], link[rel="apple-touch-icon"]').forEach(el => el.remove());
 
   const createIcon = (rel) => {

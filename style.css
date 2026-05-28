@@ -11,7 +11,7 @@ html, body {
 body {
   margin: 0;
   font-family: 'MedievalSharp', cursive;
-  background-image: url('assets/side_bcg.png');
+  background-image: url('assets/side_bcg.webp');
   background-repeat: repeat;
   background-size: auto;
   color: #2b1d0e;
@@ -29,7 +29,7 @@ main {
   margin: 40px auto;
   padding: 30px;
 
-  background-image: url("assets/basic_bcg.png");
+  background-image: url("assets/basic_bcg.webp");
   background-repeat: repeat;
   background-size: auto;
   border: 2px solid #5a3e1b;
@@ -49,7 +49,7 @@ header {
   padding: clamp(32px, 7vw, 50px) 20px;
   
   /* Nastavení opakování obrázku */
-  background-image: url('assets/basic_bcg.png');
+  background-image: url('assets/basic_bcg.webp');
   background-repeat: repeat;       /* Obrázek se bude opakovat v obou směrech */
   background-size: auto;           /* Obrázek si zachová svou původní velikost */
   
@@ -193,7 +193,7 @@ body {
 /* --- AKTUALIZOVANÝ FOOTER --- */
 footer {
   /* Nastavení opakování obrázku */
-  background-image: url('assets/basic_bcg.png');
+  background-image: url('assets/basic_bcg.webp');
   background-repeat: repeat;       /* Obrázek se bude opakovat */
   background-size: auto;           /* Obrázek si zachová původní rozměry */
   
@@ -469,7 +469,7 @@ footer p {
   max-height: min(720px, calc(100vh - 48px));
   overflow-y: auto;
   padding: 52px 24px 24px;
-  background-image: url('assets/basic_bcg.png');
+  background-image: url('assets/basic_bcg.webp');
   background-repeat: repeat;
   background-size: auto;
   border: 2px solid #5a3e1b;
